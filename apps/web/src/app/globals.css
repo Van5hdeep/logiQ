@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/*
+ * logiQ design tokens (light only). Rules live in .planning/DESIGN-SYSTEM.md.
+ * White surfaces, soft tints, and rainbow accents on containers.
+ */
+:root {
+  color-scheme: light;
+
+  --page: #f6f7fb;
+  --canvas: #ffffff;
+  --rail: #fafafd;
+  --card: #ffffff;
+  --chip: #f3f4f8;
+  --line: #ececf3;
+  --line-strong: #d9dae6;
+  --foreground: #1f2140;
+  --muted: #7b7e99;
+
+  --brand: #5b4bff;
+  --brand-soft: #eeecff;
+  --accent: #19c3a6;
+
+  /* Soft tints: pill / tile / card backgrounds. */
+  --mint: #e3f8ea;
+  --lilac: #efe8fd;
+  --butter: #fdf5d3;
+  --sky: #e1f0fd;
+  --peach: #ffeadb;
+
+  /* Rainbow accents: top bars on containers, chart bars. */
+  --a-mint: #4ade80;
+  --a-lilac: #a78bfa;
+  --a-butter: #facc15;
+  --a-sky: #38bdf8;
+  --a-peach: #fb923c;
+  --rainbow: linear-gradient(
+    90deg,
+    #fb7185,
+    #fb923c,
+    #facc15,
+    #4ade80,
+    #38bdf8,
+    #818cf8,
+    #c084fc
+  );
+
+  --pill-active: #ece9ff;
+  --pill-active-fg: #4a3ae0;
+  --logo-body: #1f2140;
+  --card-shadow: 0 1px 2px rgba(31, 33, 64, 0.04), 0 12px 30px -16px rgba(31, 33, 64, 0.14);
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-canvas: var(--canvas);
+  --color-rail: var(--rail);
+  --color-card: var(--card);
+  --color-chip: var(--chip);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
+  --color-mint: var(--mint);
+  --color-lilac: var(--lilac);
+  --color-butter: var(--butter);
+  --color-sky: var(--sky);
+  --color-peach: var(--peach);
+  --color-pill-active: var(--pill-active);
+  --color-pill-active-fg: var(--pill-active-fg);
+
+  --radius-card: 28px;
+  --radius-tile: 22px;
+  --shadow-card: var(--card-shadow);
+
+  --font-sans: var(--font-jakarta);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--page);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}

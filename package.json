@@ -1,0 +1,14 @@
+{
+  "name": "logiq",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "pnpm --filter @logiq/web dev",
+    "build": "pnpm --filter @logiq/web build",
+    "lint": "pnpm --filter @logiq/web lint",
+    "typecheck": "pnpm -r typecheck",
+    "ext:dev": "pnpm --filter @logiq/extension dev",
+    "ext:build": "pnpm --filter @logiq/extension build",
+    "ext:zip": "pnpm --filter @logiq/extension zip"
+  }
+}

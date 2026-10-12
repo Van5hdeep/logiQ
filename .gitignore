@@ -1,0 +1,22 @@
+# local code-search index (not part of the project)
+/graft/
+.ignore
+
+# dependencies / build output
+node_modules/
+.next/
+.wxt/
+.output/
+dist/
+*.tsbuildinfo
+
+# env & secrets (never commit: the OpenRouter key lives in apps/web/.env.local)
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
