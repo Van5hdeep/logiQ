@@ -19,6 +19,7 @@ Modify `packages/shared/src/problem.ts`, `types.ts`, `index.ts`, `apps/web/src/l
 5. **Implement progress mutation.** Add typed actions for practicing, solved with help, solved independently and revisit. Preserve accepted-verdict evidence separately. Return a delta/revision, not a browser-supplied whole record. Update existing vault counts and labels to the summary contract.
 6. **Protect the local service.** Add loopback launch scripts, Host/origin allowlists and pairing-token checks for extension mutations. Local web setup creates/revokes a pairing grant; background validates external sender and stores the token in extension storage. Update API client to attach it without exposing it in content scripts or prompts. PC-changing routes stay web-owned.
 7. **Bound resource use and errors.** Limit request sizes/generation concurrency, deduplicate request IDs, return stable error codes, expose invalid/quarantined records in the vault and keep unknown quota as Unknown. Show a recovery/export path instead of discarding older conversations.
+   Implement the shared 50-request/day baseline, dispatch ledger, per-action cost metadata and canonical `generatedResults` cache in the problem file from [contract §9](../IMPLEMENTATION-CONTRACTS.md#9-free-request-budget-and-problem-file-cache). Do not make budget accounting depend on the selected model or silently regenerate a response after a disk error.
 8. **Introduce test infrastructure.** Add Vitest, temporary vault fixtures, fake provider transport and CI scripts. Root lint should explicitly cover extension/shared or document each separate command. CI never calls a real model.
 
 ## Tests and acceptance
@@ -29,11 +30,16 @@ Modify `packages/shared/src/problem.ts`, `types.ts`, `index.ts`, `apps/web/src/l
 - Chat about solution B includes B's code, never solution A's same-language code.
 - Wrong host/origin/token, missing credentials and malformed body are rejected; legitimate paired extension and same-origin web mutations succeed.
 - Cache hit consumes no provider request; duplicate request ID does not save duplicate output. Disk/provider failure leaves prior data readable.
+- Provider-spy tests cover cold/cached/disclosed-repair costs, shared model-switch budget and zero dispatch on replay/seek/input/theme changes, including stale/missing cache fallbacks and failed persistence.
 - Typecheck, full lint, web build, extension build and focused test suite pass. Runtime pairing flow is demonstrated with the installed extension.
 
 ## Demonstration and exit evidence
 
 Open a copied v1 vault, select a regenerated solution, ask a version-specific question using a mocked provider, set “Solved with help”, and reload. Record persistent IDs, progress and damaged-file behavior. Show pairing failure/success without including tokens in evidence.
+
+## Requests per action
+
+Schemas, migrations, pairing, progress, cache reads and local writes cost **0 requests**. Existing Start Question costs 1 on a cold solution, 0 for a valid saved solution, maximum 2 only with a disclosed format repair. Model availability Test costs 1 only when clicked. Phase SUMMARY records cold/cache/repair measurements and problem-file cache location; no quota is spent by ordinary tests.
 
 ## Rollback and exclusions
 

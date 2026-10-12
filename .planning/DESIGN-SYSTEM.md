@@ -1,6 +1,6 @@
 # logiQ design system
 
-> Planned extension/workspace exception, 2026-10-13: the new roadmap proposes **Match this page / Light / Dark across the entire extension**, including LeetCode-compatible dark surfaces and a connected web learning view. See [THEME-INTEGRATION.md](./THEME-INTEGRATION.md) and [Phase 03](./phases/03-page-matched-dark-mode.md). This explicit scope replaces the extension's light-only restriction when execution is authorized. The current web vault retains the light default and existing design rules. The exception is proposed, not implemented.
+> Planned **optional exception**, 2026-10-13: **Light stays the default for new and existing extension installs**, consistent with D15. Match this page and Dark are opt-in settings that cover the entire extension and an explicitly opened connected learning view. See [THEME-INTEGRATION.md](./THEME-INTEGRATION.md) and [Phase 03](./phases/03-page-matched-dark-mode.md). The web vault retains its light default and existing design rules. This exception does not replace D15's default and remains proposed until reviewer approval and execution authorization.
 
 > **Every new screen and component follows this. Do not introduce a different style.**
 > Source: three reference dashboards (soft pastel learning plan, dark glass finance dashboard,

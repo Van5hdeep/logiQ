@@ -6,11 +6,11 @@ Planning docs for **logiQ** — personal DSA helper (browser extension + web app
 
 Start with [ROADMAP.md](./ROADMAP.md), then [IMPLEMENTATION-CONTRACTS.md](./IMPLEMENTATION-CONTRACTS.md), [THEME-INTEGRATION.md](./THEME-INTEGRATION.md), and [PARTNER-REVIEW.md](./PARTNER-REVIEW.md).
 
-**Status: ready for partner review; implementation is not authorized yet.** These documents describe proposed work against commit `0f806e654efad62547a09472fafd1b148d5d84f8`, not completed features. Execution starts only after the partner's review is accepted and the owner authorizes implementation.
+**Status: B1–B3 amended for re-review; implementation is not authorized yet.** These documents describe proposed work against commit `0f806e654efad62547a09472fafd1b148d5d84f8`, with owner review recorded in `c5fd0ef`, not completed features. Phases 01–05 have conditional approval; Phases 06–08 remain deferred. Do not merge until the reviewer records APPROVE PLAN for the agreed scope. Execution also needs the owner's instruction to start.
 
 The eight phase plans in `phases/01-*` through `phases/08-*` are the implementation sequence for this proposal. The original `PLAN.md` and `phase-0-1-tonight.md` remain historical context. Do not revive their superseded database, hosting or AI-gateway suggestions. Existing local JSON storage and direct OpenRouter access remain the baseline.
 
-The requested extension dark mode is a proposed scoped replacement for D15's extension light-only rule. The web vault keeps its current default appearance; the extension and a web learning workspace explicitly opened from it share a matching theme. This proposal documents that decision without changing application code.
+The proposed dark/page-matching settings are an **optional exception** to D15. Light stays the default for new and existing extension installs and the web vault. A connected learning workspace receives the student's explicitly chosen extension appearance. Start Question keeps the full solution by default; guided modes are extra choices. Results and request costs follow the shared 50-request/day budget and problem-file cache contract. These are plan amendments only.
 
 | File | Purpose |
 |---|---|

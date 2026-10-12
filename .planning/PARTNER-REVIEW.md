@@ -1,6 +1,6 @@
 # Partner review and execution gate
 
-Status: **changes requested** (owner review recorded below, 2026-10-13). Date: 2026-10-13. This branch contains proposed plans only. No phase is started or approved by its presence here.
+Status: **changes requested; B1–B3 amendments submitted for reviewer verification** (owner review recorded below, 2026-10-13). Date: 2026-10-13. Phases 01–05 have conditional approval only; Phases 06–08 are deferred. This revision does not change the reviewer decision to APPROVE PLAN or authorize implementation/merge.
 
 ## Reading order
 
@@ -14,13 +14,14 @@ Status: **changes requested** (owner review recorded below, 2026-10-13). Date: 2
 | Decision | Proposal | Review result |
 |---|---|---|
 | Page integration | Side panel primary; contextual launcher beside description; wide labs optional | Accepted |
-| Theme | Match this page default; persistent Light/Dark overrides; all extension states covered | **Amend (B1):** Light stays the default; Match this page and Dark are opt-in |
+| Theme | Light default for new/existing installs; persistent opt-in Match this page / Dark; all states covered | **B1 amended in proposal; reviewer verification pending** |
 | Backend | Keep local JSON and direct OpenRouter; no database/runner/service migration | Accepted |
-| Student agency | Hints and checkpoints; no automatic solve requests or submission | **Amend (B2):** Start Question keeps giving the full solution; hints are an extra mode |
+| Student agency | Start Question gives full idea/code/line-by-line/complexity; guided modes are extra choices; no automatic requests/submission | **B2 amended in proposal; reviewer verification pending** |
 | Trace provenance | Deterministic templates first; arbitrary generated code is not claimed executed | Accepted |
 | Custom HTML | Restricted web-only sandbox; declarative default; JS capability separately gated | **Deferred (S1):** Phase 06 approved later |
 | Narration | Browser speech + captions; silent/text fallback; MP4 export deferred | **Deferred (S1):** Phase 07 approved later |
 | Retention | Attempts and recall outcomes drive progress; watching is not mastery | Accepted, with B3 (request budget) |
+| Request budget | 50/day shared across models; declared cold/cache/repair costs; full results cached in problem file; zero requests on replay/seek/input/theme changes | **B3 amended in proposal; reviewer verification pending** |
 
 ## Review checklist
 
@@ -29,7 +30,8 @@ Status: **changes requested** (owner review recorded below, 2026-10-13). Date: 2
 - [ ] Existing v1 vault files and earliest solutions remain readable and preserved.
 - [ ] Request identity, solution identity, attempt identity and active-tab identity cannot drift.
 - [ ] LeetCode SPA navigation and root/editor changes have fallback behavior and tests.
-- [ ] Dark mode covers every extension-owned surface and preserves the web vault default.
+- [ ] Light stays default on new and existing installs even on dark LeetCode; matching/Dark are opt-in, persistent and cover every extension-owned surface.
+- [ ] Start Question returns idea + complete code + line-by-line + complexity without a hint/checkpoint/reveal gate; additional modes are explicit choices.
 - [ ] Host sampling is allowlisted/normalized; no page data can inject styles or privileged actions.
 - [ ] API pairing, loopback binding, folder migration and damaged-file recovery are testable.
 - [ ] Hints do not reveal later levels or code before explicit reveal.
@@ -40,6 +42,8 @@ Status: **changes requested** (owner review recorded below, 2026-10-13). Date: 2
 - [ ] Review scheduling distinguishes assistance, acceptance and independent recall.
 - [ ] Each phase has tests, real-browser gates, rollback and a reviewable demo.
 - [ ] Dependency/service additions remain local/free and ordinary CI does not spend AI quota.
+- [ ] Every model-backed feature declares requests per action, caches its complete result in the problem file, shows cost above 1, and tests zero calls on replay/seek/input/theme changes, including stale/error paths.
+- [ ] Each phase SUMMARY reports cold/cache/repair request counts and provider-spy evidence; switching models never resets the 50-request/day budget.
 - [ ] Historical PLAN/DECISIONS/DESIGN conflicts are explicitly resolved by the proposal's scope.
 
 ## How to record review
@@ -102,3 +106,17 @@ AI-authored HTML activities (with a sandbox) and narrated lessons are large for 
 ### S2: suggestion: don't merge this branch before the amendments
 
 The branch edits DESIGN-SYSTEM.md, EXPLANATION-SPEC.md and DECISIONS.md. If it is merged as is, the "proposed" banners become the rules. Merge only after B1-B3 are resolved and this review is updated to APPROVE PLAN.
+
+## Amendment response: 2026-10-13
+
+The original review above is preserved. The following response describes revised plans, not implemented features or a new reviewer decision.
+
+| Finding | Amendment | Verification specified |
+|---|---|---|
+| B1 | Light default for fresh/existing installs; matching/Dark explicit opt-in; D21 rationale corrected to optional dark/matching theme; DESIGN-SYSTEM says optional exception | Fresh/migrated install on dark host/OS stays Light; opt-in persists across all states; theme provider-spy cost 0 |
+| B2 | ROADMAP, Phase 04 and EXPLANATION-SPEC explicitly preserve Start Question's full answer; extra modes do not alter it | New problem shows idea/code/line-by-line/complexity; Start Question after using Hint still chooses full; saved answer costs 0 |
+| B3 | Shared 50/day baseline, complete problem-file cache, cold/cache/repair table and disclosed multi-request maximum; per-phase request sections and zero-dispatch tests | Provider-spy test for replay/seek/input/theme changes and stale/error paths; SUMMARY cost/cache evidence |
+| S1 | Phase 06/07 plans retained but deferred until first-milestone use and separate review; Phase 08 also deferred per the full review | Deferred statuses and roadmap gate remain explicit |
+| S2 | Do not merge until amendments are verified and the reviewer records APPROVE PLAN for the agreed scope | Original REQUEST CHANGES decision remains unchanged; no self-approval |
+
+See [REVIEW-AMENDMENTS.md](./REVIEW-AMENDMENTS.md) for the file map and documentation checks. Runtime tests described here are to be implemented with the approved phases; the amendment branch changes planning only. Reviewer confirmation is still required.
