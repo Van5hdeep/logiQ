@@ -120,3 +120,29 @@ The original review above is preserved. The following response describes revised
 | S2 | Do not merge until amendments are verified and the reviewer records APPROVE PLAN for the agreed scope | Original REQUEST CHANGES decision remains unchanged; no self-approval |
 
 See [REVIEW-AMENDMENTS.md](./REVIEW-AMENDMENTS.md) for the file map and documentation checks. Runtime tests described here are to be implemented with the approved phases; the amendment branch changes planning only. Reviewer confirmation is still required.
+
+## Owner re-review: 2026-10-13
+
+```text
+Reviewer: Van5hdeep (owner), with Claude Code
+Reviewed branch/commit: planning/review-amendments @ 3702f49
+Decision: APPROVE PLAN
+Approved scope/phases: Phases 01-05 (first milestone), as amended by B1-B3.
+                       Phases 06, 07 and 08 stay deferred / not approved; review again after 01-05 are in use.
+Blocking findings: none remaining (B1, B2, B3 verified below)
+Required amendments: none
+Optional suggestions: S1 and S2 respected (06-07 deferred; branch merged only after this approval)
+Review date: 2026-10-13
+```
+
+| Finding | Verified in | Result |
+|---|---|---|
+| B1 Light default | D21, DESIGN-SYSTEM banner, ROADMAP, THEME-INTEGRATION, Phase 03 acceptance | Fixed |
+| B2 Start Question full answer | D28, ROADMAP, EXPLANATION-SPEC, Phase 04 steps, tests and demo | Fixed |
+| B3 Request budget | D29, IMPLEMENTATION-CONTRACTS, per-phase "Requests per action" and zero-dispatch tests | Fixed |
+
+Checks run: `verify-review-amendments.ps1` passed (59 rules, 54 local links, eight phases); test merge with `main` had no
+conflicts; no secrets, personal paths or application-code changes. Merge follows [MERGE-CHECKLIST.md](./MERGE-CHECKLIST.md).
+
+Approving the plan does **not** start implementation. Each phase is built on its own branch and merged only after it
+passes MERGE-CHECKLIST.md, including its runtime acceptance tests.
