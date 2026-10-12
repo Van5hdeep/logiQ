@@ -9,6 +9,7 @@ Planning docs for **logiQ** — personal DSA helper (browser extension + web app
 | [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) | UI rules: layout, colours, type, components. All UI follows this |
 | [AI-ROUTING.md](./AI-ROUTING.md) | OmniRoute setup, combos, code, risks |
 | [phases/phase-0-1-tonight.md](./phases/phase-0-1-tonight.md) | Tonight's build checklist |
+| [MERGE-CHECKLIST.md](./MERGE-CHECKLIST.md) | What a collaborator branch must pass before it is merged into main |
 | [DECISIONS.md](./DECISIONS.md) | Decision log (lightweight ADRs) |
 | [BACKLOG.md](./BACKLOG.md) | Future ideas not yet scheduled |
 | `phases/` | *(add later)* one detailed spec per phase, e.g. `phase-1-mvp.md`, as each phase starts |
