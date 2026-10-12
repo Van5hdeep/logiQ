@@ -1,5 +1,7 @@
 # Explanation Spec — what logiQ outputs and how
 
+> Implementation note, 2026-10-13: this expanded teaching contract is a target, not a description of every current feature. The bounded next implementation is [Phase 04](./phases/04-guided-tutoring-and-debugging.md), with identity/versioning from [IMPLEMENTATION-CONTRACTS.md](./IMPLEMENTATION-CONTRACTS.md). Dry runs, custom activities and narrated lessons are implemented through Phases 05–07. Preserve these new provenance and safety rules where older suggestions below differ.
+
 > The "contract" for every AI answer. The prompt, the zod schema, the side-panel UI
 > and the web app all follow this document. Last updated: 2026-10-10.
 

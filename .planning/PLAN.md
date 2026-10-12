@@ -1,5 +1,7 @@
 # logiQ — Initial Plan (v0.1)
 
+> Historical initial proposal. For the current eight-phase implementation proposal, start at [ROADMAP.md](./ROADMAP.md). Current code uses local JSON storage and direct OpenRouter, not the superseded databases, gateways or hosting architecture below. The roadmap and its shared contracts take precedence for the new learning features after partner review and owner authorization.
+
 > A personal DSA tutor that lives in your browser. Trigger it on any problem page
 > (LeetCode, Codeforces, CodeChef), get a complete explanation, and have every
 > problem logged to a web app where you can review and revise it later.

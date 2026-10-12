@@ -24,6 +24,21 @@ Record each significant decision here (lightweight ADRs). Newest at the bottom.
 | D18 | 2026-10-13 | Extension flow: side panel with Start Question + language (Python default) → reads page + editor → `/api/explain` (full statement fetched from the platform's own API/page when the page is incomplete: 0 tokens) → idea + code + line-by-line + complexity → saved; changing language re-runs (saved languages load instantly); follow-up chat saved in the file; vault "Open solution" opens the tab and the saved first solution via `externally_connectable`; extension installed by zip + Load unpacked | Accepted | Owner's spec; Chrome allows installs only from the Web Store and opens the side panel only on a user gesture (badge fallback) | Publish to the Web Store |
 | D19 | 2026-10-13 | Vault folder is user-chosen in Settings (type a path or Browse via the OS folder picker run by the local server); remembered in `~/.logiq/config.json`; order: `LOGIQ_DATA_DIR` env > config > default `~/Documents/logiQ`. Switching can copy saved problems (never overwrites or deletes). Storage endpoints accept same-origin only (not the extension) | Accepted | Other users need their own location; browser folder pickers can't give a real path to the server | — |
 
+## New learning roadmap proposals — awaiting review
+
+These decisions apply to the proposed roadmap, not the currently shipped implementation. Accept/amend them through [PARTNER-REVIEW.md](./PARTNER-REVIEW.md) before execution.
+
+| # | Date | Decision | Status | Rationale | Revisit if |
+|---|---|---|---|---|---|
+| D20 | 2026-10-13 | Extend current local JSON/direct OpenRouter architecture through eight bounded phases; historical database/gateway plans stay superseded | Proposed | Fits the working code and local/free constraint | A separately approved hosting requirement exists |
+| D21 | 2026-10-13 | Entire extension uses Match this page / Light / Dark; LeetCode matching uses normalized rendered surface signals and maintained fallbacks | Proposed; scoped replacement for D15 on extension/connected learning views | Explicit user request for a page-integrated dark experience; vault keeps light default | Host design changes or real-site QA shows poor contrast |
+| D22 | 2026-10-13 | Side panel remains primary; packaged shadow-root launcher sits beside the question; optional wide learning view retains context and return action | Proposed | Help stays attached to the question without replacing the judge editor | Placement or keyboard QA fails |
+| D23 | 2026-10-13 | Persist immutable solution/attempt IDs, migrate v1 safely, bind sessions/requests/chat/artifacts to explicit identities | Proposed | Prevents stale-tab answers and wrong-version explanations | Versioned schema needs a reviewed migration |
+| D24 | 2026-10-13 | Deterministic template traces first; one trace drives visualization, checkpoints and lesson scenes; provenance distinguishes execution from illustration | Proposed | Makes custom inputs useful and limits contradictory explanations | A separately validated arbitrary-code runtime is added |
+| D25 | 2026-10-13 | Custom activities default to declarative HTML/CSS with trusted interactions in a web sandbox; free-form JS is a separate gated capability | Proposed | Supports flexible visuals while keeping privileged extension/server boundaries clear | Browser/distribution safety review approves broader execution |
+| D26 | 2026-10-13 | Narrated lessons use host-owned clock, browser speech, captions and text fallback; MP4 and paid TTS deferred | Proposed | Delivers playable concept explanations locally | Students need separately scoped downloadable video |
+| D27 | 2026-10-13 | Progress separates participation, assistance, self-reported solve, acceptance and independent recall; review uses versioned local scheduling | Proposed | Prevents answer viewing from masquerading as mastery | Measured recall outcomes justify a different scheduler |
+
 ## Template
 ```
 ### Dn — <title>
