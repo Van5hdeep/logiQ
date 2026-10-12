@@ -2,6 +2,12 @@
 
 Unscheduled ideas. Move into PLAN.md §8 when promoted to a phase.
 
+## Promotion into the current proposal
+
+The [eight-phase roadmap](./ROADMAP.md) now schedules deterministic visual dry runs, native input playgrounds, guided modes, prompt evaluation, pattern transfer, review and statistics. Full-extension page-matched dark mode, contextual LeetCode integration, custom HTML activities and narrated lessons are also specified there. They remain proposed pending partner review and owner authorization.
+
+Later ideas below remain unscheduled. Legacy runner/database/gateway suggestions are not approved dependencies for this roadmap. In particular, the native labs use local trusted implementations; universal remote judge execution, embeddings databases, external notification services and cloud hosting are outside scope.
+
 ## Learning
 - [ ] **Run generated code against samples** in a sandbox (Judge0 / Cloudflare Sandbox) and show ✅/❌
 - [ ] **Algorithm visualiser** — step-through animation of the dry run (arrays, pointers, stacks, graphs)

@@ -1,5 +1,9 @@
 # Explanation Spec — what logiQ outputs and how
 
+> Implementation note, 2026-10-13: this expanded teaching contract is a target, not a description of every current feature. The bounded next implementation is [Phase 04](./phases/04-guided-tutoring-and-debugging.md), with identity/versioning from [IMPLEMENTATION-CONTRACTS.md](./IMPLEMENTATION-CONTRACTS.md). Dry runs, custom activities and narrated lessons are implemented through Phases 05–07. Preserve these new provenance and safety rules where older suggestions below differ.
+
+> D18 default, clarified by B2: **Start Question still returns the full solution by default: idea + complete code + line-by-line explanation + time and space complexity.** Hints, approach-only, explain-my-code and debug are additional modes the student chooses. Opening the panel with Alt+L does not itself call a model; clicking Start Question requests the full answer without a preliminary hint/checkpoint/reveal gate. Replay, seek, input edits and theme changes use 0 model requests. Follow [the request-budget contract](./IMPLEMENTATION-CONTRACTS.md#9-free-request-budget-and-problem-file-cache): 50 requests/day shared across free models, per-action cost disclosure, and canonical results cached in the problem file.
+
 > The "contract" for every AI answer. The prompt, the zod schema, the side-panel UI
 > and the web app all follow this document. Last updated: 2026-10-10.
 
@@ -35,7 +39,7 @@ Key lessons:
 | **Hint** | "Hint" button (click again → next level) | Only level 5 (pseudocode) | one `hint` object per level |
 | **Pattern** | "What pattern is this?" | No | characteristics, signal words, pattern(s), why it fits, key insight, approach outline |
 | **Approach** | "Approach" | No (pseudocode allowed) | restatement → observations → pattern → brute force → optimal idea → algorithm steps → complexity |
-| **Full** (default) | `Alt+L` / "Explain fully" | Yes | all sections in §2 |
+| **Full** (default) | **Start Question** / "Explain fully"; Alt+L only opens the panel | Yes | Always idea + complete code + line-by-line + complexity; additional sections in §2 do not gate that answer |
 | **Explain my code** | "Explain my code" (needs editor code) | Uses *your* code | restatement (short) → what your approach is → line-by-line on your code → complexity of your code → is it optimal? → edge cases it misses |
 | **Review / Debug** | "Why is it wrong / TLE?" (+ verdict if detected) | Minimal fix diff | verdict diagnosis → failing input (if found) → root cause → fix → complexity actual vs required → edge cases to test → scores |
 | **Chat** | Follow-up box | As needed | free text, grounded in the stored explanation |
@@ -47,8 +51,7 @@ Hint ladder (from algo-sensei, adapted):
 4. **Technique** — name the pattern and data structure + key insight
 5. **Skeleton** — pseudocode only
 
-Each hint request sends the previous hints so the model doesn't repeat itself; level is
-stored in `user_problems` so the web app knows how much help you needed (feeds review scheduling).
+Each newly selected hint level uses 1 request, with at most 1 disclosed format repair (maximum 2). Reopening a saved level uses 0. Previous hints remain context to avoid repeats; save the complete validated level and assistance event in the problem file, not a new database. Hint-only response rules never replace Start Question's full-answer behavior.
 
 ---
 
